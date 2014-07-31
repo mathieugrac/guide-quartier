@@ -1,0 +1,16 @@
+{% block title %}title{% endblock %}
+
+{% block content %} 
+
+<h1 class="grey-normal space-large">Welcome hosts !</h1>
+<ul>
+  {% collection 'lieux' %}
+    {% for item in collection.items %}
+      <li>
+        <a href="{{ item.slug }}">{{ item.title }}</a>
+      </li>
+    {% endfor %}
+  {% endcollection %}
+</ul>
+
+{% endblock %}

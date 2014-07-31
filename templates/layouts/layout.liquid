@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% block vars %}{% endblock %}
+        <meta charset=utf-8 />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        {% block metas %}{% endblock %}
+        <title>{% block title %}Title{% endblock %}</title>
+        <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+        {{ "index.css" | asset_url | stylesheet_tag }}
+        {% block styles %}{% endblock %}
+    </head>
+    <body>
+        {% include "header" %}
+        {% include "navigation" %}
+        <div class="space-xlarge space-top-large" role="main">
+            <h1 class="space-top-normal">{{mixture.route.place}}</h1>
+            <h1 class="space-top-normal">{{lieu.slug}}</h1>
+            {% block content %}{% endblock %}
+        </div>
+        {% include "footer" %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        {{ "index.js" | asset_url | script_tag }}
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

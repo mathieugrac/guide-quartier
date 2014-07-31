@@ -1,0 +1,16 @@
+<section class="space-normal">
+
+{% item order asc %}
+  {% if next or previous %}
+    <ul>
+    {% if next %}
+      <li><a href="{{ next.url }}">Next</a></li>
+    {% endif %}
+    {% if previous %}
+      <li><a href="{{ previous.url }}">Prev</a></li>
+    {% endif %}
+    </ul>
+  {% endif %}
+{% enditem %}
+
+</section>

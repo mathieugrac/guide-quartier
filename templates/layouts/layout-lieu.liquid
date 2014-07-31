@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% block vars %}
+            {% collection "lieux" by 1 query "slug=/lieux/{{mixture.route.place}}" %}
+                {% assign lieu = collection.items.first %}
+            {% endcollection %}
+        {% endblock %}
+        <meta charset=utf-8 />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        {% block metas %}{% endblock %}
+        <title>{% block title %}{{lieu.title}}{% endblock %}</title>
+        <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+        {{ "index.css" | asset_url | stylesheet_tag }}
+        {% block styles %}{% endblock %}
+    </head>
+
+    <body>
+        {% include "header" %}
+        {% include "navigation" %}
+
+        <div class="space-xlarge space-top-large" role="main">
+            <div class="space-normal">
+              <img src="{{lieu.image}}">
+              <h1 class="space-top-normal">{{lieu.title}}</h1>
+            </div>
+            <div class="space-normal grey-light">
+                <h2>{{lieu.adresse}}</h2>
+                <ul>
+                  {% for station in lieu.metro %}
+                    <li>{{station}}</li>
+                  {% endfor %}
+                </ul>
+                <h3>{{lieu.horaire}}</h3>
+                <h4>{{lieu.telephone}}</h4>
+            </div>
+            {% block content %}{% endblock %}
+        </div>
+        
+        {% include "footer" %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        {{ "index.js" | asset_url | script_tag }}
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

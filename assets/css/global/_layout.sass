@@ -1,0 +1,114 @@
+// LAYOUT
+// ------------------------------------------------------------
+//
+// Adapted from Dead Simple Grid (c) 2012 Vladimir Agafonkin
+// https://github.com/mourner/dead-simple-grid
+
+
+// ------------------------------------------------------------
+// Variables
+
+$gutter: 1em
+$break-small: 400px
+$break-medium: 900px
+$break-large: 1200px
+
+
+// ------------------------------------------------------------
+// Mixin for breakpoints
+
+@mixin sized-from($breakpoint, $value)
+  @media screen and (min-width: $breakpoint)
+    width: $value
+
+
+// ------------------------------------------------------------
+// Dead Simple Classes
+
+*
+  box-sizing: border-box
+
+.col
+  padding: 0 $gutter
+
+.row .row
+  margin: 0 (-$gutter)
+
+.row:before,
+.row:after
+  content: ""
+  display: table
+
+.row:after
+  clear: both
+
+@media only screen
+  .col
+    float: left
+    width: 100%
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+
+
+// ------------------------------------------------------------
+// Layout Classes
+
+// Write your code here, like the example bellow
+.sidebar
+  +sized-from( $break-small, 100%)
+  +sized-from( $break-medium, 50%)
+  +sized-from( $break-large, 33.333333%)
+
+body
+  max-width: $break-small
+  margin: 0 auto
+  padding: 0 $space-small
+
+
+// ------------------------------------------------------------
+// Spacer
+
+.space-tiny 
+  margin-bottom: $space-tiny
+
+.space-small 
+  margin-bottom: $space-small
+
+.space-normal 
+  margin-bottom: $space-normal
+
+.space-medium 
+  margin-bottom: $space-medium
+
+.space-large 
+  margin-bottom: $space-large
+
+.space-xlarge 
+  margin-bottom: $space-xlarge
+
+// ------------------------------------------------------------
+
+.space-top-tiny
+  margin-top: $space-tiny
+
+.space-top-small
+  margin-top: $space-small
+
+.space-top-normal
+  margin-top: $space-normal
+
+.space-top-medium
+  margin-top: $space-medium
+
+.space-top-large
+  margin-top: $space-large
+
+.space-top-xlarge
+  margin-top: $space-xlarge  
+
+// ------------------------------------------------------------
+  
+div *
+  &:last-child
+    margin-bottom: 0

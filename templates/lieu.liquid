@@ -1,0 +1,27 @@
+{% layout "layout" %}
+
+{% block vars %} {% endblock %}
+
+{% block title %} Hello {% endblock %}
+
+{% block content %} 
+
+  <p>Template lieu</p>
+
+      <div class="space-normal">
+        <img src="{{lieu.image}}">
+        <h1 class="space-top-normal">{{lieu.title}}</h1>
+      </div>
+      <div class="space-normal grey-light">
+        <h2>{{lieu.adresse}}</h2>
+        <ul>
+          {% for station in lieu.metro %}
+            <li>{{station}}</li>
+          {% endfor %}
+        </ul>
+        <h3>{{lieu.horaire}}</h3>
+        <h4>{{lieu.telephone}}</h4>
+      </div>
+      <div>{{lieu.body}}</div>
+
+{% endblock %} 

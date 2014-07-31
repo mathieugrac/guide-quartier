@@ -1,0 +1,33 @@
+{
+  "convertHtml": {
+    "relativePaths": false
+  },
+  "debug": false,
+  "domain": null,
+  "lintScripts": false,
+  "modelSource": null,
+  "password": null,
+  "preprocessorLocations": [
+    "assets"
+  ],
+  "preprocessorScriptOutput": "assets/scripts",
+  "preprocessorStyleOutput": "assets/css",
+  "projectDescription": "Un guide du quartier pour mes hôtes airbnb",
+  "projectName": "guide-quartier",
+  "publishedId": "16196",
+  "routes": [
+    {
+      "redirect": null,
+      "route": "lieux/:place",
+      "template": "layout-lieu"
+    }
+  ],
+  "serverHostname": null,
+  "serverPort": null,
+  "simpleModePartnerServer": null,
+  "templateDefaultLayout": "layout",
+  "templateDefaultPage": "index",
+  "templateDirectory": "templates",
+  "type": "mixture",
+  "useCompass": true
+}
